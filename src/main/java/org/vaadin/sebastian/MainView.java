@@ -13,6 +13,8 @@ public class MainView extends VerticalLayout {
         Grid<Person> personGrid = new Grid<>(Person.class);
         personGrid.setItems(PersonService.findAll());
 
+        personGrid.setColumns("gender", "firstName", "name", "address.street", "address.no");
+
         add(personGrid);
     }
 }

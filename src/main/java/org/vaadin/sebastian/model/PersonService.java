@@ -10,7 +10,7 @@ public class PersonService {
 
     private final static List<Person> personList = new LinkedList<>();
 
-    private static final int MAX_COUNT = 1000;
+    private final static int MAX_COUNT = 1000;
 
     static {
         for (int i = 0; i < MAX_COUNT; i++) {
@@ -24,7 +24,7 @@ public class PersonService {
     }
 
     public static Integer count() {
-        return MAX_COUNT * 3;
+        return MAX_COUNT;
     }
 
     public static List<Person> findAll() {
@@ -34,22 +34,27 @@ public class PersonService {
     private static class Generator {
 
         static List<String> exampleFirstNameList = Arrays.asList("Morgan", "Andrea", "Jackie", "Morgan", "Joe");
-        static List<String> exampleLastNameList = Arrays.asList("Miller", "Smith", "Doe", "Jones", "Brown");
-        static List<String> exampleStreetNameList = Arrays.asList("Main Street", "Glenn", "Dupont", "State Street", "New Jersey Avenue");
+        static List<String> exampleLastNameList = Arrays.asList("Miller", "Smith", "Doe", "Jones", "Brown", "Simpson");
+        static List<String> exampleStreetNameList = Arrays.asList("Main Street", "Glenn", "Dupont", "State Street", "New Jersey Avenue", "Fake Street", "Washington Road");
         static List<String> exampleCityNameList = Arrays.asList("Washington", "Springfield", "Franklin", "Greenville", "Clinton");
 
-
-        static Person create() {
+        public static Person create() {
 
             Random random = new Random();
-            int i = random.nextInt(5) ;
-            return new Person(i % 2 == 0 ? Person.Gender.MALE : Person.Gender.FEMALE,
-                    exampleLastNameList.get(i),
-                    exampleFirstNameList.get(i),
-                    new Address(exampleStreetNameList.get(i),
-                            String.valueOf(i),
+            int randomFirstNameIndex = random.nextInt(exampleFirstNameList.size()) ;
+            int randomLastNameIndex = random.nextInt(exampleLastNameList.size()) ;
+            int randomStreetIndex = random.nextInt(exampleStreetNameList.size()) ;
+            int randomCityIndex = random.nextInt(exampleCityNameList.size()) ;
+
+            return new Person(
+                    randomFirstNameIndex % 2 == 0 ? Person.Gender.MALE : Person.Gender.FEMALE,
+                    exampleLastNameList.get(randomLastNameIndex),
+                    exampleFirstNameList.get(randomFirstNameIndex),
+                    new Address(
+                            exampleStreetNameList.get(randomStreetIndex),
+                            String.valueOf(random.nextInt(9999)),
                             String.valueOf(random.nextInt(99999)),
-                            exampleCityNameList.get(i)));
+                            exampleCityNameList.get(randomCityIndex)));
         }
     }
 }
