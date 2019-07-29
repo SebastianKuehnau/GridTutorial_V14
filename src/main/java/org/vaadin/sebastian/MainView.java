@@ -76,29 +76,6 @@ public class MainView extends VerticalLayout {
         dataProvider.setFilter(person -> person.getAddress() != null);
         dataProvider.setSortOrder(Person::getName, SortDirection.ASCENDING);
 
-        UI.getCurrent().getPage().addBrowserWindowResizeListener(event -> {
-            boolean visible = event.getWidth() > 1024;
-
-            genderColumn.setVisible(visible);
-            streetColumn.setVisible(visible);
-            cityColumn.setVisible(visible);
-            zipColumn.setVisible(visible);
-
-            if (!visible) {
-                personGrid.setItemDetailsRenderer(new ComponentRenderer<>(person -> {
-                    VerticalLayout layout = new VerticalLayout();
-                    layout.add(new Label("Gender: " + person.getGender()));
-                    layout.add(new Label("Address: " + person.getAddress().getStreet()
-                            + " " + person.getAddress().getNo()));
-                    layout.add(new Label(person.getAddress().getCity()
-                            + " " + person.getAddress().getZip()));
-                    return layout;
-                }));
-            } else
-                personGrid.setItemDetailsRenderer(null);
-
-        });
-
         add(personGrid);
     }
 }
