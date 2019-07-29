@@ -10,7 +10,7 @@ public class PersonService {
 
     private final static List<Person> personList = new LinkedList<>();
 
-    private final static int MAX_COUNT = 1000;
+    private final static int MAX_COUNT = 20;
 
     static {
         for (int i = 0; i < MAX_COUNT; i++) {
@@ -33,10 +33,10 @@ public class PersonService {
 
     private static class Generator {
 
-        static List<String> exampleFirstNameList = Arrays.asList("Morgan", "Andrea", "Jackie", "Morgan", "Joe");
-        static List<String> exampleLastNameList = Arrays.asList("Miller", "Smith", "Doe", "Jones", "Brown", "Simpson");
-        static List<String> exampleStreetNameList = Arrays.asList("Main Street", "Glenn", "Dupont", "State Street", "New Jersey Avenue", "Fake Street", "Washington Road");
-        static List<String> exampleCityNameList = Arrays.asList("Washington", "Springfield", "Franklin", "Greenville", "Clinton");
+        static List<String> exampleFirstNameList = Arrays.asList("Morgan", "Andrea", "Jackie", "Morgan", "Joe", "Dakota", "Sascha", "Clay", "Sean");
+        static List<String> exampleLastNameList = Arrays.asList("Miller", "Smith", "Doe", "Jones", "Brown", "Simpson", "Johnson", "Koch", "Wilson", "Davis");
+        static List<String> exampleStreetNameList = Arrays.asList("Main Street", "Glenn", "Dupont", "State Street", "New Jersey Avenue", "Fake Street", "Washington Road", "Park Avenue");
+        static List<String> exampleCityNameList = Arrays.asList("Washington", "Springfield", "Franklin", "Greenville", "Clinton", "Montgomery", "Phoenix", "Troy");
 
         public static Person create() {
 
