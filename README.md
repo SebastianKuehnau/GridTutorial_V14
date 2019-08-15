@@ -10,6 +10,6 @@ The following features are shown in the example:
 
 To display data in the component it will show a basic example of the data provider. 
 
-To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 installed.
+To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 installed. If you don't have npm locally installed, activate the no-local-npm profile.
 
 Run using `mvn jetty:run` and open [http://localhost:8080](http://localhost:8080) in browser.   
